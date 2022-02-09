@@ -11,7 +11,7 @@
 % Please do not use the '<SCPD_SUBMISSION_TAG>' character anywhere within your code.  As expected,
 % that will confuse the regular expressions we use to identify your solution.
 \def\assignmentnum{3 }
-\def\assignmenttitle{XCS229i Problem Set \assignmentnum}
+\def\assignmenttitle{XCS229 Problem Set \assignmentnum}
 \input{macros}
 \begin{document}
 \pagestyle{myheadings} \markboth{}{\assignmenttitle}
@@ -29,8 +29,10 @@ instructions to regenerate this handout with your typeset \LaTeX{} solutions.
 \normalsize
 
 % <SCPD_SUBMISSION_TAG>_1a
+\begin{answer}
   % ### START CODE HERE ###
   % ### END CODE HERE ###
+\end{answer}
 % <SCPD_SUBMISSION_TAG>_1a
 \clearpage
 
@@ -39,8 +41,10 @@ instructions to regenerate this handout with your typeset \LaTeX{} solutions.
 \normalsize
 
 % <SCPD_SUBMISSION_TAG>_1b
+\begin{answer}
   % ### START CODE HERE ###
   % ### END CODE HERE ###
+\end{answer}
 % <SCPD_SUBMISSION_TAG>_1b
 \clearpage
 
@@ -49,59 +53,173 @@ instructions to regenerate this handout with your typeset \LaTeX{} solutions.
 \normalsize
 
 % <SCPD_SUBMISSION_TAG>_1c
+\begin{answer}
+  The log-likelihood of an example $(x^{(i)}, y^{(i)})$ is defined as
+  $\ell(\theta) = \log p(y^{(i)} \vert  x^{(i)}; \theta)$. To derive the stochastic
+  gradient ascent rule, use the results in part (a) and the standard GLM
+  assumption that $\eta = \theta^Tx$.
+  \begin{flalign*}
+    \frac{\partial \ell(\theta)}{\partial \theta_j}
+    &= \frac{\partial \log p(y^{(i)} \vert  x^{(i)}; \theta)}{\partial \theta_j}\\
+    &= \frac {\partial \log \left({\frac{1}{y^{(i)}!} \exp(\eta^T y^{(i)} -
+    e^\eta)}\right)} {\partial \theta_j}\\
+    &=\\
+    % ### START CODE HERE ###
+    % ### END CODE HERE ###
+  \end{flalign*}
+
+  Thus the stochastic gradient ascent update rule should be:
+
+  \begin{equation*}
+  \theta_j := \theta_j + \alpha \frac{\partial \ell(\theta)}{\partial \theta_j},
+  \end{equation*}
+
+  which reduces here to:
   % ### START CODE HERE ###
   % ### END CODE HERE ###
+\end{answer}
 % <SCPD_SUBMISSION_TAG>_1c
 \clearpage
 
 \LARGE
-1.d
+2.a
 \normalsize
 
-% <SCPD_SUBMISSION_TAG>_1d
+% <SCPD_SUBMISSION_TAG>_2a
+  \begin{answer}
   % ### START CODE HERE ###
   % ### END CODE HERE ###
-% <SCPD_SUBMISSION_TAG>_1d
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_2a
 \clearpage
 
 \LARGE
-1.e
+2.b
 \normalsize
 
-% <SCPD_SUBMISSION_TAG>_1e
+% <SCPD_SUBMISSION_TAG>_2b
+  \begin{answer}
   % ### START CODE HERE ###
   % ### END CODE HERE ###
-% <SCPD_SUBMISSION_TAG>_1e
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_2b
 \clearpage
 
 \LARGE
-1.f
+2.c
 \normalsize
 
-% <SCPD_SUBMISSION_TAG>_1f
+% <SCPD_SUBMISSION_TAG>_2c
+  \begin{answer}
   % ### START CODE HERE ###
   % ### END CODE HERE ###
-% <SCPD_SUBMISSION_TAG>_1f
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_2c
 \clearpage
 
 \LARGE
-1.g
+2.d
 \normalsize
 
-% <SCPD_SUBMISSION_TAG>_1g
+% <SCPD_SUBMISSION_TAG>_2d
+  \begin{answer}
   % ### START CODE HERE ###
   % ### END CODE HERE ###
-% <SCPD_SUBMISSION_TAG>_1g
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_2d
 \clearpage
 
 \LARGE
-1.h
+2.e
 \normalsize
 
-% <SCPD_SUBMISSION_TAG>_1h
+% <SCPD_SUBMISSION_TAG>_2e
+  \begin{answer}
   % ### START CODE HERE ###
   % ### END CODE HERE ###
-% <SCPD_SUBMISSION_TAG>_1h
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_2e
+\clearpage
+
+\LARGE
+2.f
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_2f
+  \begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_2f
+\clearpage
+
+\LARGE
+2.g
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_2g
+  \begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_2g
+\clearpage
+
+\LARGE
+2.h
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_2h
+  \begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_2h
+\clearpage
+
+\LARGE
+3.ai
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_3ai
+  \begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_3ai
+
+\LARGE
+3.aii
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_3aii
+  \begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_3aii
+
+\LARGE
+3.aiii
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_3aiii
+  \begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_3aiii
+
+\LARGE
+3.c
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_3c
+  \begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+  \end{answer}
+% <SCPD_SUBMISSION_TAG>_3c
 \clearpage
 
 % <SCPD_SUBMISSION_TAG>_entire_submission
