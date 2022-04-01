@@ -25,9 +25,9 @@ class Test_1d(GradedTestCase):
   @graded(is_hidden=True)
   def test_0(self):
     """1d-0-hidden:  Poisson Regression (self.theta shape check)"""
-    solution_logreg = self.run_with_solution_if_possible(submission, lambda sub_or_sol:sub_or_sol.PoissonRegression)
+    solution_poissreg = self.run_with_solution_if_possible(submission, lambda sub_or_sol:sub_or_sol.PoissonRegression)
     student_clf = submission.PoissonRegression()
-    solution_clf = solution_logreg()
+    solution_clf = solution_poissreg()
 
     student_clf.fit(self.x_train.copy(), self.y_train.copy())
     solution_clf.fit(self.x_train.copy(), self.y_train.copy())
@@ -40,9 +40,9 @@ class Test_1d(GradedTestCase):
   @graded(is_hidden=True)
   def test_1(self):
     """1d-1-hidden:  Poisson Regression (self.theta check)"""
-    solution_logreg = self.run_with_solution_if_possible(submission, lambda sub_or_sol:sub_or_sol.PoissonRegression)
+    solution_poissreg = self.run_with_solution_if_possible(submission, lambda sub_or_sol:sub_or_sol.PoissonRegression)
     student_clf = submission.PoissonRegression()
-    solution_clf = solution_logreg()
+    solution_clf = solution_poissreg()
 
     student_clf.fit(self.x_train.copy(), self.y_train.copy())
     solution_clf.fit(self.x_train.copy(), self.y_train.copy())
