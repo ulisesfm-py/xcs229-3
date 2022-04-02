@@ -61,7 +61,6 @@ class Test_3b(GradedTestCase):
     solution_init_state = solution_initial_state()
 
     self.assertTrue(student_init_state == [], "Initial state of perceptron is incorrect")
-    self.assertTrue(solution_init_state == [], "Initial state of perceptron is incorrect")
 
     for x_i, y_i in zip(self.train_x, self.train_y):
       submission.update_state(student_init_state, submission.dot_kernel, self.lr, x_i, y_i)
@@ -79,8 +78,7 @@ class Test_3b(GradedTestCase):
     solution_init_state = solution_initial_state()
 
     self.assertTrue(student_init_state == [], "Initial state of perceptron is incorrect")
-    self.assertTrue(solution_init_state == [], "Initial state of perceptron is incorrect")
-
+    
     for x_i, y_i in zip(self.train_x, self.train_y):
       submission.update_state(student_init_state, submission.rbf_kernel, self.lr, x_i, y_i)
       solution_update(solution_init_state, submission.rbf_kernel, self.lr, x_i, y_i)
