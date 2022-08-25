@@ -7,10 +7,13 @@ import util
 
 
 def initial_state():
-    """Return the initial state for the perceptron.
-
+    """Return the initial state for the perceptron. 
     This function computes and then returns the initial state of the perceptron.
-    Please return list to contain the state of the perceptron.
+
+    Returns:
+        Returns list to contain the initial state of the perceptron
+
+    Hint: perceptron is a batch learner
     """
     # *** START CODE HERE ***
     # *** END CODE HERE ***
@@ -39,7 +42,8 @@ def update_state(state, kernel, learning_rate, x_i, y_i):
     """Updates the state of the perceptron.
 
     Args:
-        state: The state returned from initial_state()
+        state: The state returned from initial_state(); state is a list of tuples 
+                (ie see grader.py self.test_state for reference)
         kernel: A binary function that takes two vectors as input and returns the result of a kernel
         learning_rate: The learning rate for the update
         x_i: A vector containing the features for a single instance
