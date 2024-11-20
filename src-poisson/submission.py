@@ -2,6 +2,7 @@ import numpy as np
 import util
 import matplotlib.pyplot as plt
 
+
 def main(lr, train_path, eval_path, save_path):
     """Problem: Poisson regression with gradient ascent.
 
@@ -23,11 +24,13 @@ def main(lr, train_path, eval_path, save_path):
     p_eval = clf.predict(x_eval)
     np.savetxt(save_path, p_eval)
     plt.figure()
-    plt.scatter(y_eval,p_eval,alpha=0.4,c='red',label='Ground Truth vs Predicted')
+    plt.scatter(y_eval, p_eval, alpha=0.4, c='red',
+                label='Ground Truth vs Predicted')
     plt.xlabel('Ground Truth')
     plt.ylabel('Predictions')
     plt.legend()
     plt.savefig('poisson_valid.png')
+
 
 class PoissonRegression:
     """Poisson Regression.
@@ -62,6 +65,28 @@ class PoissonRegression:
             y: Training example labels. Shape (n_examples,).
         """
         # *** START CODE HERE ***
+        n_examples, dim = x.shape
+
+        if self.theta is None:
+            self.theta = np.zeros(dim)
+
+        for i in range(self.max_iter):
+
+            h = np.exp(np.dot(x, self.theta))
+
+            gradient = np.dot(x.T, y - h)
+
+            # update Theta
+            old_theta = self.theta.copy()
+            lr = self.step_size
+            self.theta += lr*gradient
+
+            if np.linalg.norm(old_theta - self.theta) < self.eps:
+                break
+
+            if self.verbose and i % 50 == 0:
+                print(f'Iteration {i}: theta = {self.theta}')
+
         # *** END CODE HERE ***
 
     def predict(self, x):
@@ -74,10 +99,13 @@ class PoissonRegression:
             Floating-point prediction for each input, shape (n_examples,).
         """
         # *** START CODE HERE ***
+        eta = np.dot(x, self.theta)
+        return np.exp(eta)
         # *** END CODE HERE ***
+
 
 if __name__ == '__main__':
     main(lr=1e-5,
-        train_path='train.csv',
-        eval_path='valid.csv',
-        save_path='poisson_pred.txt')
+         train_path='train.csv',
+         eval_path='valid.csv',
+         save_path='poisson_pred.txt')

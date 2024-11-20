@@ -16,6 +16,7 @@ def initial_state():
     Hint: perceptron is a batch learner
     """
     # *** START CODE HERE ***
+    return []  # list
     # *** END CODE HERE ***
     pass
 
@@ -34,6 +35,9 @@ def predict(state, kernel, x_i):
         Returns the prediction (i.e 0 or 1)
     """
     # *** START CODE HERE ***
+    prediction = sum(coef * kernel(support_vector, x_i)
+                     for coef, support_vector in state)
+    return sign(prediction)
     # *** END CODE HERE ***
     pass
 
@@ -49,7 +53,16 @@ def update_state(state, kernel, learning_rate, x_i, y_i):
         x_i: A vector containing the features for a single instance
         y_i: A 0 or 1 indicating the label for a single instance
     """
+
     # *** START CODE HERE ***
+    prediction = sum(coef * kernel(support_vector, x_i)
+                     for coef, support_vector in state)
+    # Prediction should be 1 or 0
+    predicted_label = sign(prediction)
+    # The mistake is y_i - predicted_label, and this value should be used to adjust the coefficients
+    error = y_i - predicted_label
+    state.append((learning_rate * error, x_i))
+
     # *** END CODE HERE ***
     pass
 
@@ -104,6 +117,7 @@ def train_perceptron(kernel_name, kernel, learning_rate):
 
     for x_i, y_i in zip(train_x, train_y):
         update_state(state, kernel, learning_rate, x_i, y_i)
+        print(state)
 
     test_x, test_y = util.load_csv('test.csv')
 
@@ -112,7 +126,8 @@ def train_perceptron(kernel_name, kernel, learning_rate):
     util.plot_points(test_x, test_y)
     plt.savefig('perceptron_{}_output.png'.format(kernel_name))
 
-    predict_y = [predict(state, kernel, test_x[i, :]) for i in range(test_y.shape[0])]
+    predict_y = [predict(state, kernel, test_x[i, :])
+                 for i in range(test_y.shape[0])]
 
     np.savetxt('perceptron_{}_predictions'.format(kernel_name), predict_y)
 
